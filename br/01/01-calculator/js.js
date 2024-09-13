@@ -16,28 +16,36 @@ function Szamol(){
 }*/
 
 a.addEventListener("change", ()=>{
-    b = document.getElementById("out").value;
+    b = a.value.replace("x","*");
+    console.log(b.replace("x","*"));
     try{
         a.value = eval(b);
     }
     catch(err){
         a.value = "0";
     }
-    console.log(b);
 });
 
 //ez meg a kicommentelt módon csak nem működik??????
 document.getElementById("eredmeny").addEventListener("click", ()=>{
-    b = document.getElementById("out").value;
+    b = a.value;
+    b.replace("x","*");
     try{
         a.value = eval(b);
     }
     catch(err){
         a.value = "0";
     }
-    console.log(b);
 });
 
+let buttons = document.querySelectorAll(".btn-secondary");
+buttons.forEach((button) =>{
+    button.addEventListener("click",()=>{ //ez egy callback
+        a.value == 0 ? a.value = button.innerHTML : a.value += button.innerHTML; //igy kicsereli a 0-t
+    });
+});
+console.table(buttons);
+/*
 document.getElementById("9").addEventListener("click", ()=>{
     a.value+="9";
 });
@@ -82,8 +90,8 @@ document.getElementById("/").addEventListener("click", ()=>{
     a.value+="/";
 });
 
-document.getElementById("torol").addEventListener("click", ()=>{
-    a.value="";
+document.getElementById("x").addEventListener("click", ()=>{
+    a.value+="x";
 });
 
 document.getElementById("-").addEventListener("click", ()=>{
@@ -94,6 +102,6 @@ document.getElementById("+").addEventListener("click", ()=>{
     a.value+="+";
 });
 
-document.getElementById("*").addEventListener("click", ()=>{
-    a.value+="*";
-});
+document.getElementById(".").addEventListener("click", ()=>{
+    a.value+=".";
+});*/
