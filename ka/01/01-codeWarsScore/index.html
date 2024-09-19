@@ -14,16 +14,18 @@
 
 <body>
     <div class="container">
-        <div class="container-2">
+        <div class="container-2 m-2">
             <div class="flex-row">
-                <h2>Felhasználó keresése CodeWars-on</h2>
+                <h2>Felhasználó keresése CodeWarson</h2>
             </div>
             <div class="flex-row">
                 <input class="flex-item" type="text" name="usernev" id="usernev" placeholder="pl.: b0gavmar"><br>
             </div>
             <div class="flex-row">
                 <button class="btn btn-dark m-2" onclick="FetchScoreSum();" id="button1">Összesített adatok</button>
-                <button class="btn btn-dark m-2" onclick="FetchScoreByLanguages();">Nyelvek szerint</button>
+                <button class="btn btn-dark m-2" onclick="FetchScoreByLanguages();" id="button2">Nyelvek szerint</button>
+                <button class="btn btn-dark m-2" onclick="AddUser();" id="button3">Hozzáadás</button>
+                <button class="btn btn-dark m-2" onclick="Rangsor();" id="button4">Rangsor</button>
             </div>
         </div>
 
