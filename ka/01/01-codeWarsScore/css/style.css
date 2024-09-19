@@ -52,16 +52,22 @@ div,h3{
     margin: 2vh;
 }
 
+@media(max-width:825px){
+    html{
+        font-size: 0.8rem;
+    }
+}
+/*EZT MÉG MEG KELLENE CSINÁLNI*/
 
-@media (min-width: 768px) {
+@media (min-width: 825px) {
     html {
-        font-size: 115%; /* Nagyobb képernyőkön az alap betűméretet növeled */
+        font-size: 115%;
     }
 }
 
 @media (min-width: 1200px) {
     html {
-        font-size: 150%; /* Még nagyobb képernyőn még nagyobb méret */
+        font-size: 150%;
     }
     .container-2{
         max-width: 1400px;
