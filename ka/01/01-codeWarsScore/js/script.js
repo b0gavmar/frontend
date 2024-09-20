@@ -1,6 +1,6 @@
 document.getElementById("usernev").value = "";
 let userNameElement = document.getElementById("usernev");
-let userName = 'myjinxin2015';
+let userName;
 let users = false;
 let kiUsers = new Array();
 
@@ -151,5 +151,8 @@ function Rangsor(){
         });
         li += '</div>';
         document.getElementById("kiiras").innerHTML = li;
+    }
+    else{
+        document.getElementById("kiiras").innerHTML = "<div class='container-2'>Adjon hozzá legalább 2 felhasználót!</div>";;
     }
 }
