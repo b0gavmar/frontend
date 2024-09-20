@@ -28,6 +28,7 @@ document.getElementById("button3").addEventListener("click", () => {
     }
 });
 
+
 function FetchScoreSum() {
     if (userName) {
         fetch("https://www.codewars.com/api/v1/users/" + userName)
@@ -131,28 +132,31 @@ function AddUser() {
                 console.error('Error:', error);
                 document.getElementById("kiiras").innerHTML = "<div class='container-2'>" + error.message + "</div>";
                 users = false;
+                kiUsers = new Array();
             });
     }
     else {
         users = false;
+        kiUsers = new Array();
         document.getElementById("kiiras").innerHTML = "<div class='container-2'>Írjon be egy felhasználó nevet!</div>";
     }
 }
 
-function Rangsor(){
-    if(kiUsers.length >= 2){
+function Rangsor() {
+    if (kiUsers.length >= 2) {
         kiUsers.sort((a, b) => b.ranks.overall.score - a.ranks.overall.score);
         console.table(kiUsers);
         let li = '<div class="container-2"><h3>Rangsorozott felhasználók:</h3>';
         let i = parseInt(1);
         kiUsers.forEach(user => {
-            li += '<div class="flex-element"><h4>'+i +'. '+ user.username + '</h4>Pontok: '+ user.ranks.overall.score+'</div>';
+            li += '<div class="flex-element"><h4>' + i + '. ' + user.username + '</h4>Pontok: ' + user.ranks.overall.score + '</div>';
             i++;
         });
         li += '</div>';
         document.getElementById("kiiras").innerHTML = li;
     }
-    else{
-        document.getElementById("kiiras").innerHTML = "<div class='container-2'>Adjon hozzá legalább 2 felhasználót!</div>";;
+    else {
+        document.getElementById("kiiras").innerHTML = "<div class='container-2'>Adjon hozzá legalább 2 felhasználót!</div>";
+        user = false;
     }
 }
