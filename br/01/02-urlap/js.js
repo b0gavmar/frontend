@@ -2,7 +2,6 @@ let emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@
 let pwdPattern = /^[\w]{8,256}$/;
 let irszPattern = /^[1-9][4]$/;
 let errors = [];
-let errors2 = [];
 
 //mo irszamok 1000-9999
 //regex101 oldal
@@ -16,25 +15,24 @@ $(function () { //ready
         let pwd = $(this).val().trim();
         let irsz = $(this).val().trim();
         let type = $(this).attr("type");
-        
 
-        if (!emailPattern.test(email) && type == "email") {
-            errors[1] = "<p>Az email formátuma nem megfelelő!</p>";
+
+        if (!emailPattern.test(email) && type == "email" && errors.filter(error => error.includes("email")) == null) {
+            errors.push("<p>Az email formátuma nem megfelelő!</p>");
         }
-        else{
-            errors2 = errors.filter(error => !error.includes("email"));
+        else {
+            //errors2 = errors.filter(error => !error.includes("email"));
         }
 
         if (!pwdPattern.test(pwd) && type == "password") {
-            errors[2] = "<p>Az jelszó formátuma nem megfelelő!</p>";
+            errors.push("<p>Az jelszó formátuma nem megfelelő!</p>");
         }
 
         if (!irszPattern.test(irsz) && type == "text") {
-            errors[3] = "<p>Az irányítószám formátuma nem megfelelő!</p>";
+            errors.push("<p>Az irányítószám formátuma nem megfelelő!</p>");
         }
 
         console.table(errors);
-        console.table(errors2);
         $(".error").html(errors.join(""));
     });
     $(".button").attr("disabled", false);
