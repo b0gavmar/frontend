@@ -14,5 +14,5 @@ $("input").mousemove(function () {
     //document.body.style.backgroundColor = 'rgb(' + rgbR + ',' + rgbG + ',' + rgbB + ',' + rgbO + ')';
     $("#szines").css("background-color", `rgba(${rgbR},${rgbG},${rgbB},${rgbO})`);
     //console.log('rgb(' + rgbR + ',' + rgbG + ',' + rgbB + ',' + rgbO + ')');
-
+    $("#csuszkaertek").html(`rgba(${rgbR},${rgbG},${rgbB},${rgbO})`);
 });
